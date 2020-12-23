@@ -1,0 +1,24 @@
+1. serverless - deployment of a container is costy but it is managed
+2. for lambda need a proxy to activet the service - http request to access lambda through proxy
+3. another option: managed containers service e.g. kubernetes (google), kubernetes (amazon) - the differenece is that you buy a docker (almost like a container)
+   docker is a container in general but it can be treated as a virtual machine, but the kernel is always up and there is not much for the machine to do to start the environment
+   it is a sort of a sand box, use the same kernel as the above operating system. has no access to the above operating system (it does not do assembly commands like a real virtul
+machine. very different implementation). They start very fast. you build an image - very small (microservice) i.g. ubuntu has an existing container. lambda works the same behind the scene.
+more containers: Fargate (SIMPLER TO IMPLEMENT FOR US, BUT only by amazon! kubernetics can be run everywhere almost (open source)). it deals with running and loading the containers - load balancing between containers etc.
+
+4. GRAPHQL api - (lambda is the cheapest) 
+api gateway (http) -> container -> service. advantage - no dealing with scale or server. disadvantage - stateless (must be taken into account when developing)
+probably what we have to do is stateless
+
+difference between lambda and containers is:
+lambda is serverless - time limited - not a "machine"
+containers runs a container - can connect with ssh and not time limited
+
+API gateway (http): extra service
+cluster of https managed servers. they have a proxy that passing the requests to the service (lambda, kubernetics etc) - no need for security management and in general much less management
+
+production http server:wsgi: (e.g. apache web server or enginex): flask is not
+
+you pay as you use with a serverless
+
+dynamodb for graphql (provisioned call OR unprovisioned - on demand) provisioned - know in advance how many calls - pay less per call. unprovisioned - don't know and pay more. both cases no payment for no calls
