@@ -3,3 +3,4 @@ __pycache__
 .vagrant
 restaurantmenu.db
 .vscode/
+venv
